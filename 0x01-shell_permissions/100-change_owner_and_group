@@ -1,0 +1,2 @@
+#!/bin/bush
+chown -R vincent:staff ./
