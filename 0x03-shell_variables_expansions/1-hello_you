@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "hello MyUser\n"
+printf "hello $(whoami)"
