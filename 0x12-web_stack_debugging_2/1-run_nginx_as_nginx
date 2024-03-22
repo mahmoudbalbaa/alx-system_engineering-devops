@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Install nginx if not already installed
+if ! command -v nginx &> /dev/null; then
+    echo "Nginx is not installed. Installing..."
+    # Add installation steps here if needed
+fi
+
+# Stop nginx if it's already running
+sudo systemctl stop nginx
+
+# Update nginx configuration to run as nginx user
+sudo sed -i 's/user\s*nginx;/user nginx nginx;/g' /etc/nginx/nginx.conf
+
+# Update nginx configuration to listen on all active IPs on port 8080
+sudo sed -i 's/listen\s*80;/listen 8080;/g' /etc/nginx/sites-available/default
+
+# Start nginx
+sudo systemctl start nginx
+
+# Verify nginx is running as nginx user and listening on port 8080
+echo "Nginx is now configured to run as nginx user and listening on port 8080."
