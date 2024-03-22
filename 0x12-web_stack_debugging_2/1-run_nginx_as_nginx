@@ -3,7 +3,8 @@
 # Install nginx if not already installed
 if ! command -v nginx &> /dev/null; then
     echo "Nginx is not installed. Installing..."
-    # Add installation steps here if needed
+    sudo apt-get update
+    sudo apt-get install nginx -y
 fi
 
 # Stop nginx if it's already running
